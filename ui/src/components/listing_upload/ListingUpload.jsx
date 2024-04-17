@@ -148,23 +148,24 @@ const ListingUpload = () => {
             <h3 className='text-center p-2 mb-3'>Post Product Ad</h3>
             <form className="product-ad-form rounded px-4 pt-2 pb-4 shadow " onSubmit={handleSubmit}>
 
-                <label htmlFor="title">Product Title</label>
+                <label htmlFor="title">Product Title <span className='text-danger'> *</span></label>
                 <input className="form-control rounded border-dark" type="text" id="title" name="title" value={formData.title} onChange={handleInputChange} />
 
                 {errors.title && <div className="error-message">{errors.title}</div>}
 
-                <label htmlFor="description">Product Description</label>
+                <label htmlFor="description">Product Description <span className='text-danger'> *</span></label>
                 <textarea className="form-control rounded border-dark" id="description" name="description" value={formData.description} onChange={handleInputChange}></textarea>
                 {errors.description && <div className="error-message">{errors.description}</div>}
 
-                <label htmlFor="category">Select a Category</label>
+                <label htmlFor="category">Select a Category <span className='text-danger'> *</span></label>
                 <select id="category" name="category" value={formData.category} onChange={handleInputChange} className='rounded form-select border-dark'>
                     <option value="category1">Category 1</option>
                     <option value="category2">Category 2</option>
                 </select>
 
                 <div className="form-group rounded border border-dark p-3">
-                    <label>Add photos of your product <span className="required-indicator">*</span></label>
+                    <label>Add photos of your product <span className='text-danger'> *</span></label>
+                    <span>Only png and jpeg</span>
                     <hr />
                     <input className='form-control-file' type="file" accept="image/jpeg, image/png" onChange={handleImageSelect} />
                     {errors.image && <div className="error-message" style={{marginTop:"10px"}}>{errors.image}</div>}
@@ -176,7 +177,7 @@ const ListingUpload = () => {
                 </div>
 
 
-                <label htmlFor="price">Price</label>
+                <label htmlFor="price">Price <span className='text-danger'> *</span></label>
                 <input className="form-control rounded border-dark" type="number" id="price" name="price" value={formData.price} onChange={handleInputChange} />
                 {errors.price && <span className="error">{errors.price}</span>}
 
@@ -184,14 +185,18 @@ const ListingUpload = () => {
                     <p>Contact Information</p>
                     <hr />
                     <div className='contact-info-input'>
-                        <label htmlFor="phoneNumber">Phone Number:</label>
-                        <input type="tel" id="phoneNumber" className='form-control rounded' name="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange} />
+                        <label htmlFor="phoneNumber">Phone Number: <span className='text-danger'> *</span></label>
+                        <div className='row'>
+                        <input type="tel" id="phoneNumber" className='form-control rounded col-6 w-100 ' name="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange} />
                         {errors.phoneNumber && <span className="error">{errors.phoneNumber}</span>}
+                        </div>
                     </div>
                     <div className='contact-info-input'>
-                        <label htmlFor="email">Email:</label>
-                        <input type="email" className='form-control rounded' id="email" name="email" value={formData.email} onChange={handleInputChange} />
-                        {errors.email && <span className="error">{errors.email}</span>}
+                        <label htmlFor="email">Email: <span className='text-danger'> *</span></label>
+                        <div className='row'>
+                        <input type="email" className='form-control rounded col-6 w-100' id="email" name="email" value={formData.email} onChange={handleInputChange} />
+                        {errors.email && <span className="error w-100">{errors.email}</span>}
+                        </div>
                     </div>
                 </fieldset>
                 <GradientButton className="form-control rounded" rounded={true} type="submit" disabled={Object.keys(errors).length > 0 || isUploading} text={"Add Product"} />
