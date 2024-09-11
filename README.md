@@ -8,7 +8,6 @@ Welcome to BartersHub! This project aims to create a platform where users can ex
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 BartersHub provides a platform for users to trade goods or services without the need for traditional currency. It facilitates the process of bartering by connecting users who have items or skills to offer with those who are seeking them. Whether you're looking to trade items, skills, or services, BartersHub provides a convenient platform to do so.
